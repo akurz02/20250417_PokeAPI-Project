@@ -11,7 +11,7 @@ import streamlit as st
 # ============================================================
 
 st.set_page_config(
-    page_title="PokéData",
+    page_title="PKMN-Data",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -47,7 +47,7 @@ st.markdown(
 
     .stApp {
         background: #0b0f17;
-        color: #f5f7fa;
+        color: #e06b24;
     }
 
     .block-container {
@@ -92,7 +92,7 @@ st.markdown(
     }
 
     .eyebrow {
-        color: #8b5cf6;
+        color: #e06b24;
         font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.15em;
@@ -128,13 +128,13 @@ st.markdown(
     }
 
     div[data-testid="stTextInput"] input:focus {
-        border-color: #8b5cf6;
-        box-shadow: 0 0 0 1px #8b5cf6;
+        border-color: #e06b24;
+        box-shadow: 0 0 0 1px #e06b24;
     }
 
     .stButton > button {
-        background: #8b5cf6;
-        color: white;
+        background: #e06b24;
+        color: black;
         border: none;
         border-radius: 12px;
         font-weight: 700;
@@ -143,7 +143,8 @@ st.markdown(
     }
 
     .stButton > button:hover {
-        background: #7c3aed;
+        background: #9d4b19;
+        color: white;
         border: none;
     }
 
