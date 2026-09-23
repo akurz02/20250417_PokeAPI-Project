@@ -17,6 +17,7 @@ from utils.api import fetch_pokemon_data, fetch_species_data
 from utils.calculations import calculate_level_projection, calculate_stats
 from utils.constants import (
     GEN_TO_LOCATION,
+    GENERATION_REGIONS,
     NATURE_MODIFIERS,
     NATURES,
     STAT_DISPLAY_NAMES,
@@ -604,10 +605,11 @@ with result_col:
     )
 
     st.plotly_chart(
-        render_stat_chart(base_stats, projected_custom),
-        use_container_width=True,
-        config={"displayModeBar": False},
-    )
+    render_stat_chart(base_stats, projected_custom),
+    use_container_width=True,
+    config={"displayModeBar": False},
+    key="pokedex_stat_chart",
+)
 
 
 # ------------------------------------------------------------
@@ -633,11 +635,11 @@ if species_url:
                 st.markdown(
                     f"""
                     <div class="info-card generation-card">
-                        <div class="info-label">GENERATION</div>
-                        <div class="info-value">Generation {generation}</div>
+                        <div class="info-label">GENERATION INTRODUCED:</div>
+                        <div class="info-value">Gen. {generation}</div>
                         <br>
-                        <div class="info-label">REGION</div>
-                        <div class="info-value">{html.escape(location["region"])}</div>
+                        <div class="info-label">REGION:</div>
+                        <div class="info-value">{html.escape(GENERATION_REGIONS[generation])}</div>
                     </div>
                     """,
                     unsafe_allow_html=True,

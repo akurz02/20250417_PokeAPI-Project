@@ -117,20 +117,20 @@ st.markdown(
 ROOT = Path(__file__).resolve().parent
 
 home_page = st.Page(
-    str(ROOT / "Pages" / "1_Home.py"),
+    str(ROOT/"Pages" /"1_Home.py"),
     title="Home",
     icon="🏠",
     default=True,
 )
 
 pokedex_page = st.Page(
-    str(ROOT / "Pages" / "2_Pokedex.py"),
+    str(ROOT/"Pages"/"2_Pokedex.py"),
     title="Pokédex",
     icon="📖",
 )
 
 battle_data_page = st.Page(
-    str(ROOT / "Pages" / "3_Battle_Data.py"),
+    str(ROOT /"Pages"/"3_Battle_Data.py"),
     title="Battle Data",
     icon="⚔️",
 )

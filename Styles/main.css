@@ -15,7 +15,8 @@
     --border-strong: rgba(255, 255, 255, 0.12);
 
     --accent: #e06b24;
-    --accent-hover: #9d4b19;
+    --accent-hover: #b95318;
+    --accent-glow: rgba(224, 107, 36, 0.22);
     --accent-soft: rgba(224, 107, 36, 0.14);
 
     --success: #34d399;
@@ -125,7 +126,7 @@ p, span, label {
     line-height: 0.95;
     letter-spacing: -0.05em;
     margin: 0 0 1.5rem 0;
-    color: #ffffff;
+    color: var(--text);
 }
 
 .hero p {
@@ -142,7 +143,7 @@ p, span, label {
     line-height: 1;
     letter-spacing: -0.04em;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--text);
     margin: 0;
 }
 
@@ -185,13 +186,13 @@ div[data-testid="stTextInput"] input {
     background: var(--surface);
     border: 1px solid var(--border-strong);
     border-radius: 12px;
-    color: #ffffff;
+    color: var(--text);
     min-height: 44px;
     padding: 0.8rem 1rem;
 }
 
 div[data-testid="stTextInput"] input::placeholder {
-    color: #667085;
+    color: var(--text-subtle);
 }
 
 div[data-testid="stTextInput"] input:focus {
@@ -216,7 +217,7 @@ div[data-testid="stTextInput"] input:focus {
     border-color: transparent;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.22);
+    box-shadow: 0 8px 20px var(--accent-glow);
 }
 
 .stButton > button:active {
@@ -240,12 +241,12 @@ div[data-testid="stTextInput"] input:focus {
 }
 
 .empty-state h2 {
-    color: #ffffff;
+    color: var(--text);
     margin-bottom: 0.75rem;
 }
 
 .empty-state p {
-    color: #8f98a8;
+    color: var(--text-muted);
     max-width: 650px;
     margin: 0.5rem auto;
     line-height: 1.6;
@@ -277,7 +278,7 @@ div[data-testid="stTextInput"] input:focus {
     font-size: 2.8rem;
     font-weight: 800;
     letter-spacing: -0.04em;
-    color: #ffffff;
+    color: var(--text);
     margin-bottom: 0.5rem;
 }
 
@@ -367,7 +368,7 @@ div[data-testid="stTextInput"] input:focus {
 }
 
 .metric-value {
-    color: #ffffff;
+    color: var(--text);
     font-size: 1.55rem;
     font-weight: 800;
 }
@@ -391,7 +392,7 @@ div[data-testid="stTextInput"] input:focus {
 }
 
 .info-value {
-    color: #ffffff;
+    color: var(--text);
     font-size: 1rem;
     font-weight: 600;
 }
@@ -407,10 +408,10 @@ div[data-testid="stTextInput"] input:focus {
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 0.8rem;
-    background: rgba(139, 92, 246, 0.10);
-    border: 1px solid rgba(139, 92, 246, 0.25);
+    background: var(--accent-soft);
+    border: 1px solid rgba(224, 107, 36, 0.28);
     border-radius: var(--radius-pill);
-    color: #c4b5fd;
+    color: var(--accent);
     font-size: 0.8rem;
     font-weight: 650;
 }
@@ -432,7 +433,7 @@ div[data-testid="stTextInput"] input:focus {
 }
 
 .stat-value {
-    color: #ffffff;
+    color: var(--text);
     font-size: 1.5rem;
     font-weight: 800;
     margin-top: 0.3rem;
@@ -491,7 +492,7 @@ div[data-testid="stMultiSelect"] > div > div {
 
 div[data-testid="stNumberInput"] input {
     background: var(--surface);
-    color: #ffffff;
+    color: var(--text);
     border-color: var(--border-strong);
     border-radius: 12px;
 }
@@ -520,7 +521,7 @@ div[data-testid="stSlider"] [role="slider"] {
 }
 
 .stTabs [aria-selected="true"] {
-    color: #ffffff;
+    color: var(--text);
     background: var(--accent-soft);
 }
 
@@ -555,7 +556,7 @@ div[data-testid="stAlert"] {
 }
 
 .region-name {
-    color: #ffffff;
+    color: var(--text);
     font-size: 1.15rem;
     font-weight: 750;
 }
@@ -577,7 +578,7 @@ div[data-testid="stAlert"] {
     padding: 3rem 0 1rem 0;
     margin-top: 4rem;
     border-top: 1px solid var(--border);
-    color: #667085;
+    color: var(--text-subtle);
     font-size: 0.8rem;
 }
 
@@ -613,6 +614,58 @@ hr {
 ::-webkit-scrollbar-thumb:hover {
     background: #3a4456;
 }
+
+
+/* ============================================================
+   LIGHT THEME TOKENS
+   ============================================================ */
+[data-theme="light"] {
+    --bg: #f5f7fa;
+    --bg-elevated: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --surface-hover: #f1f5f9;
+    --text: #17202b;
+    --text-muted: #5f6b7a;
+    --text-subtle: #7a8594;
+    --border: rgba(15, 23, 42, 0.09);
+    --border-strong: rgba(15, 23, 42, 0.15);
+    --accent: #E06B24;
+    --accent-hover: #b95318;
+    --accent-soft: rgba(224, 107, 36, 0.10);
+    --accent-glow: rgba(224, 107, 36, 0.18);
+    --shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+}
+
+/* ============================================================
+   MODERN POKÉDEX SECTIONS
+   ============================================================ */
+.pokedex-identity {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(320px, 1.2fr);
+    gap: 2rem;
+    align-items: center;
+}
+.pokedex-kicker {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+.pokedex-hero { padding: 0.5rem 0 1rem; }
+.stat-bar {
+    width: 100%; height: 7px; margin-top: 0.65rem;
+    background: var(--surface-2); border-radius: var(--radius-pill); overflow: hidden;
+}
+.stat-bar-fill { height: 100%; background: var(--accent); border-radius: inherit; }
+.evolution-card, .flavor-card, .type-defense-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.5rem;
+}
+.evolution-node { text-align: center; color: var(--text); }
+.flavor-text { color: var(--text-muted); line-height: 1.75; font-size: 0.95rem; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -659,4 +712,19 @@ hr {
         min-width: 68px;
         padding: 0.35rem 0.7rem;
     }
+}
+
+
+/* Streamlit primary-button compatibility */
+div[data-testid="stButton"] > button[kind="primary"],
+div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"] {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    border-color: var(--accent) !important;
+}
+div[data-testid="stButton"] > button[kind="primary"]:hover,
+div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"]:hover {
+    background: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+    box-shadow: 0 8px 20px var(--accent-glow);
 }

@@ -56,7 +56,7 @@ st.markdown(
     }
 
     .home-kicker {
-        color: #e68950;
+        color: var(--accent);
         font-size: 0.76rem;
         font-weight: 850;
         letter-spacing: 0.16em;
@@ -65,7 +65,7 @@ st.markdown(
     }
 
     .home-hero-title {
-        color: #ffffff;
+        color: var(--text);
         max-width: 900px;
         font-size: clamp(2.8rem, 7vw, 5.6rem);
         line-height: 0.95;
@@ -75,11 +75,11 @@ st.markdown(
     }
 
     .home-hero-accent {
-        color: #e68950;
+        color: var(--accent);
     }
 
     .home-hero-copy {
-        color: #9ca3af;
+        color: var(--text-muted);
         max-width: 720px;
         font-size: 1.05rem;
         line-height: 1.75;
@@ -89,9 +89,9 @@ st.markdown(
     .home-feature-card {
         min-height: 285px;
         padding: 1.6rem;
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid var(--border-strong);
         border-radius: 22px;
-        background: linear-gradient(145deg, #151a24, #10151e);
+        background: linear-gradient(145deg, var(--surface), var(--bg-elevated));
     }
 
     .home-feature-icon {
@@ -101,21 +101,21 @@ st.markdown(
         align-items: center;
         justify-content: center;
         border-radius: 14px;
-        background: rgba(157, 75, 25, 1);
-        color: #e68950;
+        background: var(--accent-soft);
+        color: var(--accent);
         font-size: 1.25rem;
         margin-bottom: 1.15rem;
     }
 
     .home-feature-title {
-        color: #ffffff;
+        color: var(--text);
         font-size: 1.35rem;
         font-weight: 800;
         margin-bottom: 0.55rem;
     }
 
     .home-feature-copy {
-        color: #e68950;
+        color: var(--text-muted);
         line-height: 1.65;
         font-size: 0.9rem;
         min-height: 82px;
@@ -124,13 +124,13 @@ st.markdown(
     .home-step {
         min-height: 165px;
         padding: 1.35rem;
-        border: 1px solid rgba(255,255,255,0.07);
+        border: 1px solid var(--border);
         border-radius: 16px;
-        background: rgba(255,255,255,0.025);
+        background: var(--surface-2);
     }
 
     .home-step-number {
-        color: #e68950;
+        color: var(--accent);
         font-size: 0.72rem;
         font-weight: 850;
         letter-spacing: 0.12em;
@@ -138,29 +138,29 @@ st.markdown(
     }
 
     .home-step-title {
-        color: #ffffff;
+        color: var(--text);
         font-weight: 750;
         margin-bottom: 0.4rem;
     }
 
     .home-step-copy {
-        color: #7f8798;
+        color: var(--text-subtle);
         font-size: 0.82rem;
         line-height: 1.6;
     }
 
     .home-capability {
         padding: 1rem 0;
-        border-top: 1px solid rgba(255,255,255,0.07);
+        border-top: 1px solid var(--border);
     }
 
     .home-capability-title {
-        color: #e5e7eb;
+        color: var(--text);
         font-weight: 750;
     }
 
     .home-capability-copy {
-        color: #7f8798;
+        color: var(--text-subtle);
         font-size: 0.82rem;
         line-height: 1.55;
         margin-top: 0.25rem;
@@ -169,34 +169,34 @@ st.markdown(
     .home-callout {
         padding: 2rem;
         margin-top: 2rem;
-        border: 1px solid rgba(134, 64, 22, 1);
+        border: 1px solid var(--accent-glow);
         border-radius: 22px;
         background:
             radial-gradient(
                 circle at 100% 0%,
-                rgba(139,92,246,0.12),
+                var(--accent-soft),
                 transparent 45%
             ),
-            #2d1507;
+            var(--surface);
         text-align: center;
     }
 
     .home-callout-title {
-        color: #ffffff;
+        color: var(--text);
         font-size: 1.5rem;
         font-weight: 800;
         letter-spacing: -0.035em;
     }
 
     .home-callout-copy {
-        color: #8f98a8;
+        color: var(--text-muted);
         max-width: 650px;
         margin: 0.6rem auto 0;
         line-height: 1.65;
     }
 
     .home-tech {
-        color: #667085;
+        color: var(--text-subtle);
         text-align: center;
         font-size: 0.76rem;
         margin-top: 1rem;
@@ -249,16 +249,16 @@ action_col_1, action_col_2 = st.columns(2)
 
 with action_col_1:
     st.page_link(
-        "Pages/2_Pokedex.py",
-        label="Explore the Pokédex",
+        "pages/2_Pokedex.py",
+        label="📖  Explore the Pokédex",
         icon="📖",
         use_container_width=True,
     )
 
 with action_col_2:
     st.page_link(
-        "Pages/3_Battle_Data.py",
-        label="Analyze Battle Data",
+        "pages/3_Battle_Data.py",
+        label="⚔️  Analyze Battle Data",
         icon="⚔️",
         use_container_width=True,
     )

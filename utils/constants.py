@@ -94,3 +94,15 @@ GEN_TO_LOCATION = {
     8: {"lat": 54.0000, "lon": -2.0000, "region": "United Kingdom"},
     9: {"lat": 40.4637, "lon": -3.7492, "region": "Spain"},
 }
+
+GENERATION_REGIONS = {
+    1: "Kanto",
+    2: "Johto",
+    3: "Hoenn",
+    4: "Sinnoh",
+    5: "Unova",
+    6: "Kalos",
+    7: "Alola",
+    8: "Galar",
+    9: "Paldea",
+}
