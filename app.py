@@ -64,7 +64,7 @@ st.markdown(
     }
 
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
-        color: #f8fafc;
+        color: var(--text);
     }
 
     .app-shell-brand {
@@ -72,7 +72,7 @@ st.markdown(
     }
 
     .app-shell-brand-title {
-        color: #ffffff;
+        color: var(--accent);
         font-size: 1.05rem;
         font-weight: 850;
         letter-spacing: -0.02em;
@@ -80,7 +80,7 @@ st.markdown(
     }
 
     .app-shell-brand-subtitle {
-        color: #8b8fa3;
+        color: var(--text-muted);
         font-size: 0.72rem;
         margin-top: 0.2rem;
     }
@@ -99,7 +99,7 @@ st.markdown(
        st.navigation is active. */
 
     .shell-footer {
-        color: #71778a;
+        color: var(--text-subtle);
         font-size: 0.7rem;
         line-height: 1.5;
         padding: 1.5rem 0 0.5rem;
@@ -115,22 +115,25 @@ st.markdown(
 # ------------------------------------------------------------
 
 ROOT = Path(__file__).resolve().parent
+PAGES_DIR = ROOT / "Pages"
+if not PAGES_DIR.exists():
+    PAGES_DIR = ROOT / "pages"
 
 home_page = st.Page(
-    str(ROOT/"Pages" /"1_Home.py"),
+    str(PAGES_DIR / "1_Home.py"),
     title="Home",
     icon="🏠",
     default=True,
 )
 
 pokedex_page = st.Page(
-    str(ROOT/"Pages"/"2_Pokedex.py"),
+    str(PAGES_DIR / "2_Pokedex.py"),
     title="Pokédex",
     icon="📖",
 )
 
 battle_data_page = st.Page(
-    str(ROOT /"Pages"/"3_Battle_Data.py"),
+    str(PAGES_DIR / "3_Battle_Data.py"),
     title="Battle Data",
     icon="⚔️",
 )

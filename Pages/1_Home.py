@@ -9,6 +9,8 @@ from pathlib import Path
 
 import streamlit as st
 
+from utils.header import render_header
+
 
 # ------------------------------------------------------------
 # PAGE CONFIG
@@ -214,6 +216,13 @@ st.markdown(
 
 
 # ------------------------------------------------------------
+# SHARED HEADER
+# ------------------------------------------------------------
+
+render_header("home")
+
+
+# ------------------------------------------------------------
 # HERO
 # ------------------------------------------------------------
 
@@ -249,7 +258,7 @@ action_col_1, action_col_2 = st.columns(2)
 
 with action_col_1:
     st.page_link(
-        "pages/2_Pokedex.py",
+        "Pages/2_Pokedex.py",
         label="📖  Explore the Pokédex",
         icon="📖",
         use_container_width=True,
@@ -257,7 +266,7 @@ with action_col_1:
 
 with action_col_2:
     st.page_link(
-        "pages/3_Battle_Data.py",
+        "Pages/3_Battle_Data.py",
         label="⚔️  Analyze Battle Data",
         icon="⚔️",
         use_container_width=True,

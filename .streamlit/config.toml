@@ -1,0 +1,24 @@
+# Pokémon Analytics — Streamlit theme configuration
+# Defines the native light/dark theme values used by Streamlit.
+
+[theme]
+base = "dark"
+primaryColor = "#E06B24"
+backgroundColor = "#0B0F17"
+secondaryBackgroundColor = "#151A24"
+textColor = "#F5F7FA"
+font = "sans serif"
+
+[theme.light]
+primaryColor = "#E06B24"
+backgroundColor = "#F5F7FA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#17202B"
+font = "sans serif"
+
+[theme.dark]
+primaryColor = "#E06B24"
+backgroundColor = "#0B0F17"
+secondaryBackgroundColor = "#151A24"
+textColor = "#F5F7FA"
+font = "sans serif"

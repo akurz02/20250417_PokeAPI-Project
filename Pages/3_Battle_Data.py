@@ -12,6 +12,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+from utils.header import render_header
 from utils.api import fetch_pokemon_data
 from utils.calculations import calculate_stats
 from utils.constants import (
@@ -112,7 +113,7 @@ def inject_battle_css():
         }
 
         .battle-hero h1 {
-            color: #fff;
+            color: var(--text);
             font-size: clamp(2.3rem, 5vw, 4.2rem);
             line-height: 0.98;
             letter-spacing: -0.045em;
@@ -146,7 +147,7 @@ def inject_battle_css():
         }
 
         .battle-profile-name {
-            color: #fff;
+            color: var(--text);
             font-size: 1.8rem;
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -172,7 +173,7 @@ def inject_battle_css():
             min-width: 68px;
             padding: 0.35rem 0.7rem;
             border-radius: 999px;
-            color: #fff;
+            color: #ffffff;
             font-size: 0.68rem;
             font-weight: 800;
             letter-spacing: 0.06em;
@@ -190,7 +191,7 @@ def inject_battle_css():
         }
 
         .analysis-banner strong {
-            color: #fff;
+            color: var(--text);
         }
 
         .analysis-banner span {
@@ -198,7 +199,7 @@ def inject_battle_css():
         }
 
         .result-number {
-            color: #fff;
+            color: var(--text);
             font-size: 1.6rem;
             font-weight: 800;
         }
@@ -220,7 +221,7 @@ def inject_battle_css():
             border-radius: 999px;
             background: var(--accent-soft);
             border: 1px solid rgba(139,92,246,0.22);
-            color: #ddd6fe;
+            color: var(--accent);
             font-size: 0.78rem;
             font-weight: 750;
         }
@@ -270,31 +271,8 @@ def stat_label(stat_name):
     )
 
 
-def render_header():
-    """Render the shared visual header without depending on app.py."""
-    logo_path = Path("assets/logo.png")
-
-    if logo_path.exists():
-        logo_html = (
-            f'<img class="logo" src="data:image/png;base64,'
-            f'{__import__("base64").b64encode(logo_path.read_bytes()).decode()}">'
-        )
-    else:
-        logo_html = '<div style="font-weight:800;font-size:1.1rem;">⚡ Pokémon Analytics</div>'
-
-    st.markdown(
-        f"""
-        <div class="topbar">
-            {logo_html}
-            <div class="nav">
-                <a href="/">Home</a>
-                <a href="/Pokedex">Pokédex</a>
-                <a class="active" href="/Battle_Data">Battle Data</a>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+def render_page_header():
+    render_header("battle")
 
 
 def render_profile(pokemon_data):
@@ -499,7 +477,7 @@ def render_ranges(analysis):
 # HEADER / HERO
 # ------------------------------------------------------------
 
-render_header()
+render_page_header()
 
 st.markdown(
     """

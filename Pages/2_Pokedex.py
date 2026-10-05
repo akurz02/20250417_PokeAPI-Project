@@ -13,11 +13,11 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+from utils.header import render_header
 from utils.api import fetch_pokemon_data, fetch_species_data
 from utils.calculations import calculate_level_projection, calculate_stats
 from utils.constants import (
     GEN_TO_LOCATION,
-    GENERATION_REGIONS,
     NATURE_MODIFIERS,
     NATURES,
     STAT_DISPLAY_NAMES,
@@ -79,7 +79,7 @@ def inject_page_css():
             margin-bottom: 0.75rem;
         }
         .pokedex-hero h1 {
-            color: #fff;
+            color: var(--text);
             font-size: clamp(2.3rem, 5vw, 4.2rem);
             line-height: 0.98;
             letter-spacing: -0.045em;
@@ -109,7 +109,7 @@ def inject_page_css():
             letter-spacing: 0.08em;
         }
         .pokedex-name {
-            color: #fff;
+            color: var(--text);
             font-size: clamp(2rem, 4vw, 3.25rem);
             font-weight: 850;
             letter-spacing: -0.045em;
@@ -129,7 +129,7 @@ def inject_page_css():
             min-width: 72px;
             padding: 0.38rem 0.75rem;
             border-radius: 999px;
-            color: #fff;
+            color: #ffffff;
             font-size: 0.68rem;
             font-weight: 800;
             letter-spacing: 0.06em;
@@ -144,7 +144,7 @@ def inject_page_css():
             border-radius: 0.55rem;
             background: rgba(255,255,255,0.045);
             border: 1px solid var(--border);
-            color: #d7dbe4;
+            color: var(--text-muted);
             font-size: 0.82rem;
             font-weight: 650;
         }
@@ -154,7 +154,7 @@ def inject_page_css():
         .stat-bar-label {
             display: flex;
             justify-content: space-between;
-            color: #d7dbe4;
+            color: var(--text-muted);
             font-size: 0.82rem;
             font-weight: 700;
             margin-bottom: 0.35rem;
@@ -168,7 +168,7 @@ def inject_page_css():
         .stat-fill {
             height: 100%;
             border-radius: inherit;
-            background: linear-gradient(90deg, var(--accent), #a78bfa);
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
         }
         .generation-card {
             min-height: 180px;
@@ -197,30 +197,6 @@ TYPE_COLORS = {
     "rock": "#b8a038", "ghost": "#705898", "dragon": "#7038f8",
     "dark": "#705848", "steel": "#b8b8d0", "fairy": "#ee99ac",
 }
-
-
-def render_header():
-    logo_path = Path("assets/logo.png")
-    if logo_path.exists():
-        encoded = base64.b64encode(logo_path.read_bytes()).decode()
-        logo_html = f'<img class="logo" src="data:image/png;base64,{encoded}">'
-    else:
-        logo_html = '<div style="font-weight:800;font-size:1.1rem;">⚡ Pokémon Analytics</div>'
-
-    st.markdown(
-        f"""
-        <div class="topbar">
-            {logo_html}
-            <div class="nav">
-                <a href="/">Home</a>
-                <a class="active" href="/Pokedex">Pokédex</a>
-                <a href="/Battle_Data">Battle Data</a>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
 
 def type_badges(types):
     return "".join(
@@ -290,8 +266,6 @@ def render_stat_chart(base_stats, projected_stats):
     return fig
 
 
-render_header()
-
 st.markdown(
     """
     <div class="pokedex-hero">
@@ -356,8 +330,8 @@ if not pokemon_data:
         """
         <div class="empty-state">
             <div style="font-size:2.5rem;">⚡</div>
-            <h3 style="color:#fff;margin:0.75rem 0 0.4rem;">Start exploring</h3>
-            <div style="color:#8992a2;">
+            <h3 style="color:var(--text);margin:0.75rem 0 0.4rem;">Start exploring</h3>
+            <div style="color:var(--text-muted);">
                 Search for a Pokémon above to load its analytics profile.
             </div>
         </div>
@@ -605,11 +579,10 @@ with result_col:
     )
 
     st.plotly_chart(
-    render_stat_chart(base_stats, projected_custom),
-    use_container_width=True,
-    config={"displayModeBar": False},
-    key="pokedex_stat_chart",
-)
+        render_stat_chart(base_stats, projected_custom),
+        use_container_width=True,
+        config={"displayModeBar": False},
+    )
 
 
 # ------------------------------------------------------------
@@ -635,11 +608,11 @@ if species_url:
                 st.markdown(
                     f"""
                     <div class="info-card generation-card">
-                        <div class="info-label">GENERATION INTRODUCED:</div>
-                        <div class="info-value">Gen. {generation}</div>
+                        <div class="info-label">GENERATION</div>
+                        <div class="info-value">Generation {generation}</div>
                         <br>
-                        <div class="info-label">REGION:</div>
-                        <div class="info-value">{html.escape(GENERATION_REGIONS[generation])}</div>
+                        <div class="info-label">REGION</div>
+                        <div class="info-value">{html.escape(location["region"])}</div>
                     </div>
                     """,
                     unsafe_allow_html=True,

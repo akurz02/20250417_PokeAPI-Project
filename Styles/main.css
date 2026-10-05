@@ -77,10 +77,27 @@ p, span, label {
     margin-bottom: 3rem;
 }
 
+.brand-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo {
-    max-height: 48px;
-    max-width: 180px;
+    display: block;
+    width: 42px;
+    height: 42px;
+    max-height: 42px;
+    max-width: 42px;
+    width: auto;
     object-fit: contain;
+}
+
+.logo-fallback {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 850;
+    letter-spacing: -0.02em;
 }
 
 .nav {
@@ -100,7 +117,7 @@ p, span, label {
 
 .nav a:hover,
 .nav a.active {
-    color: var(--text);
+    color: var(--accent);
 }
 
 [data-testid="stSidebarNav"] {
@@ -222,6 +239,25 @@ div[data-testid="stTextInput"] input:focus {
 
 .stButton > button:active {
     transform: translateY(0);
+}
+
+/* Native page links used by the Home page. Keep them brand-orange in both themes. */
+.stPageLink a {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--accent) !important;
+    border-radius: 12px !important;
+    font-weight: 750 !important;
+    text-decoration: none !important;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition) !important;
+}
+
+.stPageLink a:hover {
+    background: var(--accent-hover) !important;
+    color: #ffffff !important;
+    border-color: var(--accent-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px var(--accent-glow);
 }
 
 /* EMPTY / STATUS STATES */
@@ -619,7 +655,9 @@ hr {
 /* ============================================================
    LIGHT THEME TOKENS
    ============================================================ */
-[data-theme="light"] {
+[data-theme="light"],
+html[data-theme="light"],
+body[data-theme="light"] {
     --bg: #f5f7fa;
     --bg-elevated: #ffffff;
     --surface: #ffffff;
@@ -635,6 +673,29 @@ hr {
     --accent-soft: rgba(224, 107, 36, 0.10);
     --accent-glow: rgba(224, 107, 36, 0.18);
     --shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+}
+
+/* ============================================================
+   DARK THEME TOKENS
+   ============================================================ */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+    --bg: #0b0f17;
+    --bg-elevated: #10151e;
+    --surface: #151a24;
+    --surface-2: #1a202c;
+    --surface-hover: #202736;
+    --text: #f5f7fa;
+    --text-muted: #9ca3af;
+    --text-subtle: #737d8d;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-strong: rgba(255, 255, 255, 0.12);
+    --accent: #e06b24;
+    --accent-hover: #b95318;
+    --accent-soft: rgba(224, 107, 36, 0.14);
+    --accent-glow: rgba(224, 107, 36, 0.22);
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.20);
 }
 
 /* ============================================================
